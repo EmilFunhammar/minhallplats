@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="design.css" />
+    <title>Min|Hållplats</title>
+  </head>
+
+  <body
+    class="bakgrundsbild"
+    onload="getsiteid(); setInterval('getsiteid()' , 30000)"
+  >
+    <!--gömmd-->
+    <div id="siteid"></div>
+    <input
+      id="backbutton"
+      type="button"
+      onclick="showbutton()"
+      value="Sök ny station"
+    />
+    <table id="real"></table>
+    <div class="container" id="hide">
+      <div class="checkboxes">
+        <input class="checkbox" type="radio" name="check" id="trams" />
+        <label for="trams">Tåg</label>
+        <input class="checkbox" type="radio" name="check" id="buss" />
+        <label for="buss">Buss</label>
+      </div>
+
+      <input
+        class="box1"
+        type="text"
+        id="information"
+        placeholder="Sök Hållplats:"
+      />
+      <input
+        class="box2"
+        type="number"
+        id="avstånd"
+        placeholder="Gångavstånd till Hållplats:"
+      />
+
+      <input class="sökknapp" type="button" onclick="getsiteid()" value="Sök" />
+      <div id="time"></div>
+    </div>
+  </body>
+
+  <script src="java.js"></script>
+</html>

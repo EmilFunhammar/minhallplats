@@ -79,7 +79,7 @@ table {
   border-collapse: collapse;
   width: 96%;
   position: fixed;
-  top: 1vh;
+  top: 10vh;
   left: 1vh;
   text-align: center;
 }
@@ -109,7 +109,7 @@ tr:nth-child(even) {
   background-color: #050505;
   border-color: #dee904;
   width: 96%;
-  top: 10vh;
+  top: 1vh;
   left: 1vh;
 }
 

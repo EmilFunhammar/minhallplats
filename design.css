@@ -75,7 +75,7 @@
 
 table {
   text-underline-position: below;
-  font-family: arial, sans-serif;
+  font-family: "VT323", monospace;
   border-collapse: collapse;
   width: 96%;
   position: fixed;

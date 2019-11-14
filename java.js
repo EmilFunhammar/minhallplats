@@ -34,6 +34,7 @@ function getrealinfo() {
   const span = document.getElementById("siteid").innerHTML;
   const div = document.getElementById("real");
   div.innerHTML = "<tr><th>linje</th><th>Gå om</th><th>Nästa avgång</th></tr>";
+  var i = 1;
   const url =
     "https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=73415dbcf95348e79eb8399b7f51d6c4&siteid=" +
     span +
@@ -47,20 +48,24 @@ function getrealinfo() {
         infos = data.ResponseData.Buses;
       } // kollar checkboxes ifall tåg eller buss ska lässas in
       return infos.map(function(info) {
-        if (mytime(info.ExpectedDateTime) > 0) {
-          // if (trafiktime(info.DisplayTime) > 0) {
-          div.innerHTML +=
-            "<tr><td>" +
-            info.LineNumber +
-            " " +
-            info.Destination +
-            "</td><td>" +
-            mytime(info.ExpectedDateTime) + // ger värdet rill funktionen mytime
-            " min" +
-            "</td><td>" +
-            info.DisplayTime +
-            "</td></tr>";
-        } // skappar en tabel i html men informationen från json filen
+        if (i <= 10) {
+          if (mytime(info.ExpectedDateTime) > 0) {
+            // if (trafiktime(info.DisplayTime) > 0) {
+            div.innerHTML +=
+              "<tr><td>" +
+              info.LineNumber +
+              " " +
+              info.Destination +
+              "</td><td>" +
+              mytime(info.ExpectedDateTime) + // ger värdet rill funktionen mytime
+              " min" +
+              "</td><td>" +
+              info.DisplayTime +
+              "</td></tr>";
+            i++; // omvandlar till
+          }
+        }
+        // skappar en tabel i html men informationen från json filen
       });
     })
     .catch(function(error) {
@@ -127,7 +132,7 @@ function sparaelement(stationsplats) {
     .then(function(data) {
       let infos = data.data;
 
-      return infos.map(function(info) {});
+      return infos.map(function(info) {}); //
     })
     .catch(function(error) {
       console.log(error);
